@@ -12,4 +12,24 @@
   firebase.initializeApp(config);
 
   var database = firebase.database();
-  var userRef = database.ref("/user");
+
+    var name = "";
+    var role = "";
+    var startDate = "";
+    var monthlyRate = "";
+
+    $("#click-button").on("click", function(event) {
+      event.preventDefault();
+
+      name = $("#name-input").val().trim();
+      role = $("#role-input").val().trim();
+      startDate = $("#startDate-input").val().trim();
+      monthlyRate = $("#monthlyRate-input").val().trim();
+
+      database.ref().set({
+        name: name,
+        role: role,
+        startDate: startDate,
+        monthlyRate: monthlyRate
+      });
+    });

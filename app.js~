@@ -16,9 +16,8 @@ var config = {
     // Initial Variables (SET the first set IN FIREBASE FIRST)
     // Note remember to create these same variables in Firebase!
     var name = "";
-    var role = "";
-    var startDate = "";
-    var monthlyRate = "";
+    var age = "";
+    var phone = "";
 
     // Click Button changes what is stored in firebase
     $("#click-button").on("click", function(event) {
@@ -27,9 +26,8 @@ var config = {
 
       // Get inputs
       name = $("#name-input").val().trim();
-      role = $("#role-input").val().trim();
-      startDate = $("#age-input").val().trim();
-      monthlyRate = $("#startDate-input").val().trim();
+      age = $("#age-input").val().trim();
+      phone = $("#phone-input").val().trim();
 
       // Change what is saved in firebase
       database.ref().set({
