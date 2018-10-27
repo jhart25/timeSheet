@@ -112,6 +112,16 @@
     });
 
 
+usderRed.on("child_added", function(snapshot){
+    console.log(snapshot.val());
+    var data = snapshot.val();
+    $("#name-display").text(data.name);
+    $("#role-display").text(data.role);
+    $("#startDate-display").text(data.stateDate);
+    $("#monthlyRate-display").text(data.monthlyRate);
+}
+
+
 
     // Firebase is always watching for changes to the data.
     // When changes occurs it will print them to console and html
