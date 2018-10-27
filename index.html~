@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Timesheet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	 <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script> 
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 
 </head>
 <body>
     <div class= "jumbotran big-banner text-center" style="background-color: black", >
@@ -70,14 +72,11 @@
     </div>
     
 <!-- ====================================================================== -->
-
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script> 
   <!-- Script -->
   <script>
       // Initialize Firebase
-  var config = {
+  	 var config = {
     apiKey: "AIzaSyB-yn2hKaTB88WNIA0iFJVsiEX4pCjzrkg",
     authDomain: "timesheet-c2025.firebaseapp.com",
     databaseURL: "https://timesheet-c2025.firebaseio.com",
@@ -94,10 +93,12 @@
     var startDate = "";
     var monthlyRate = "";
 
-    $("#click-button").on("click", function(event) {
+    $("#add-user").on("click", function(event) {
       event.preventDefault();
-
+		console.log('clicked submit')
+		
       name = $("#name-input").val().trim();
+      console.log('name logged', name)
       role = $("#role-input").val().trim();
       startDate = $("#startDate-input").val().trim();
       monthlyRate = $("#monthlyRate-input").val().trim();
