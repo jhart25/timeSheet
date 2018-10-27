@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	 
 </head>
 <body>
     <div class= "jumbotran big-banner text-center" style="background-color: black", >
@@ -62,7 +61,7 @@
                                 <label for="year-start">Monthly Rate:</label>
                                 <input type="year-start" class="form-control" id="monthlyRate-input">
                             </div>
-                            <button id="add-user" class="btn btn-primary btn-md"></span>Search</button>
+                            <button id="add-user" class="btn btn-primary btn-md">Send</button>
                       
                         </form>
                     </div>
@@ -95,10 +94,8 @@
 
     $("#add-user").on("click", function(event) {
       event.preventDefault();
-		console.log('clicked submit')
 		
       name = $("#name-input").val().trim();
-      console.log('name logged', name)
       role = $("#role-input").val().trim();
       startDate = $("#startDate-input").val().trim();
       monthlyRate = $("#monthlyRate-input").val().trim();
@@ -112,14 +109,13 @@
     });
 
 
-usderRed.on("child_added", function(snapshot){
-    console.log(snapshot.val());
-    var data = snapshot.val();
+database.on("child_added", function(snapshot){
+   var data = snapshot.val();
     $("#name-display").text(data.name);
     $("#role-display").text(data.role);
     $("#startDate-display").text(data.stateDate);
     $("#monthlyRate-display").text(data.monthlyRate);
-}
+});
 
 
 
