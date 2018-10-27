@@ -1,12 +1,12 @@
- <script src="https://code.jquery.com/jquery.js"></script>
-
  // Brandon's API Key //
- var config = {
+
+  // Initialize Firebase
+  var config = {
     apiKey: "AIzaSyB-yn2hKaTB88WNIA0iFJVsiEX4pCjzrkg",
     authDomain: "timesheet-c2025.firebaseapp.com",
     databaseURL: "https://timesheet-c2025.firebaseio.com",
     projectId: "timesheet-c2025",
-    storageBucket: "",
+    storageBucket: "timesheet-c2025.appspot.com",
     messagingSenderId: "308067301942"
   };
   firebase.initializeApp(config);
@@ -26,7 +26,7 @@
       startDate = $("#startDate-input").val().trim();
       monthlyRate = $("#monthlyRate-input").val().trim();
 
-      database.ref().set({
+      database.ref().push(({
         name: name,
         role: role,
         startDate: startDate,

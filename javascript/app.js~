@@ -1,5 +1,3 @@
- <script src="https://code.jquery.com/jquery.js"></script>
-
  // Brandon's API Key //
  var config = {
     apiKey: "AIzaSyB-yn2hKaTB88WNIA0iFJVsiEX4pCjzrkg",
@@ -26,7 +24,7 @@
       startDate = $("#startDate-input").val().trim();
       monthlyRate = $("#monthlyRate-input").val().trim();
 
-      database.ref().set({
+      database.ref().push(({
         name: name,
         role: role,
         startDate: startDate,
