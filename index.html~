@@ -4,10 +4,7 @@
     <title>Timesheet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	 
-	 <script type="text/javascript" src="javascript/app.js"></script>
-</head>
-
+	 <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script> 
 </head>
 <body>
     <div class= "jumbotran big-banner text-center" style="background-color: black", >
@@ -72,3 +69,75 @@
         </div>
     </div>
     
+<!-- ====================================================================== -->
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Script -->
+  <script>
+      // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB-yn2hKaTB88WNIA0iFJVsiEX4pCjzrkg",
+    authDomain: "timesheet-c2025.firebaseapp.com",
+    databaseURL: "https://timesheet-c2025.firebaseio.com",
+    projectId: "timesheet-c2025",
+    storageBucket: "timesheet-c2025.appspot.com",
+    messagingSenderId: "308067301942"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+    var name = "";
+    var role = "";
+    var startDate = "";
+    var monthlyRate = "";
+
+    $("#click-button").on("click", function(event) {
+      event.preventDefault();
+
+      name = $("#name-input").val().trim();
+      role = $("#role-input").val().trim();
+      startDate = $("#startDate-input").val().trim();
+      monthlyRate = $("#monthlyRate-input").val().trim();
+
+      database.ref().push({
+        name: name,
+        role: role,
+        startDate: startDate,
+        monthlyRate: monthlyRate
+      });
+    });
+
+
+
+    // Firebase is always watching for changes to the data.
+    // When changes occurs it will print them to console and html
+   // database.ref().on("value", function(snapshot) {
+
+      // Print the initial data to the console.
+     // console.log(snapshot.val());
+
+      // Log the value of the various properties
+    //  console.log(snapshot.val().name);
+    //  console.log(snapshot.val().age);
+    //  console.log(snapshot.val().phone);
+
+      // Change the HTML
+  //    $("#displayed-data").text(snapshot.val().name + " | " + snapshot.val().age + " | " + snapshot.val().phone);
+
+      // If any errors are experienced, log them to console.
+   // }, function(errorObject) {
+    //  console.log("The read failed: " + errorObject.code);
+   // });
+  </script>    
+    
+    
+    
+    
+    
+    
+    
+ </body>
+ </html>
