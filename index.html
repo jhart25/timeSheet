@@ -109,12 +109,17 @@
     });
 
 
-database.on("child_added", function(snapshot){
-   var data = snapshot.val();
-    $("#name-display").text(data.name);
-    $("#role-display").text(data.role);
-    $("#startDate-display").text(data.stateDate);
-    $("#monthlyRate-display").text(data.monthlyRate);
+database.ref().on("child_added", function(childSnapshot){
+   	console.log(childSnapshot.val().name);
+      console.log(childSnapshot.val().role);
+      console.log(childSnapshot.val().startDate);
+      console.log(childSnapshot.val().monthlyRate);
+   
+   //var data = snapshot.val();
+    //$("#name-display").text(data.name);
+    //$("#role-display").text(data.role);
+    //$("#startDate-display").text(data.stateDate);
+    //$("#monthlyRate-display").text(data.monthlyRate);
 });
 
 
